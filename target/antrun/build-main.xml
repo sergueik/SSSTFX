@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <echo>Displaying value of &apos;build_os&apos; property</echo>
+  <echo>[build_os]: win64</echo>
+  <echo message="build_os = win64"/>
+  <available file="binaries" property="test.binaries" value=""/>
+  <mkdir dir="binaries"/>
+  <mkdir dir="src/main/resources"/>
+  <zip basedir="binaries/" destfile="src/main/resources/native.zip" includes="**"></zip>
+</target>
+</project>
