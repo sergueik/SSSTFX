@@ -1,12 +1,14 @@
 ﻿### Info
-This project utilizes Selenium TNG Side JSON recordings to Straight Selenium code in Java or other languages via jTwig with javaFx.
-Also offers the UI for minimal pre-generation modification of the test workflow similar to [SWET]()
-(but rendering on JavaFX).
 
-####
+The __SSSTFX__ project converts Selenium TNG __Side__ JSON recordings to __Straight__ __Selenium__  code in Java or other languages via __jTwig__ with __javaFX__.
+Also offers the UI for minimal editing of the test workflow before generaring the code, similar to [SWET/FX](https://github.com/sergueik/selenium_java/tree/master/swet_javafx) or [SWET/SWT](https://github.com/sergueik/SWET).
+(likely will choose JavaFX rendering).
 
+![edit step details](https://github.com/sergueik/SSSTFX/blob/master/screenshots/edit.png)
+
+#### Action
 First deserialize the `*.side` JSON
-using basic [gson](https://google.github.io/gson/apidocs/com/google/gson/Gson.html).
+using basic [gson](https://google.github.io/gson/apidocs/com/google/gson/Gson.html) and reflection.
 
 ```json
 {
@@ -50,6 +52,11 @@ using basic [gson](https://google.github.io/gson/apidocs/com/google/gson/Gson.ht
   ]
 }
 
+```
+
+```java
+SideRecording sideRecording = new Gson().fromJson(SeleniumIDEPayload,
+  SideRecording.class);
 ```
 into into a collecton of plain DTO class instances of the kind
 ```java
@@ -196,10 +203,12 @@ static {
   methodTable.put("WAIT_URL_CHANGE", "waitURLChange");
 }
 ```
-- the fragment is borrowed from [SKDF](https://github.com/sergueik/SKDF).
+- the fragment is borrowed from [SKDF](https://github.com/sergueik/SKDF) verbatim - the methods and their tags will be different.
 
+[review workflow](https://github.com/sergueik/SSSTFX/blob/master/screenshots/review.png)
 
-Finally utilizs the [jtwig](http://jtwig.org/documentation/reference) templates like example borrowed from [SWET](https://github.com/sergueik/SWET), below,
+Finally utilizes collection of [jtwig](http://jtwig.org/documentation/reference) templates like example below 
+borrowed from [SWET](https://github.com/sergueik/SWET)
 ```java
 {#
 template: Core Selenium Java
@@ -249,13 +258,18 @@ IWebElement element =
 )
 // ...
 ```
-
 to produce a standalone program in Java, c#, Python or whatnot
 - this part is a work in progress.
 
-
 ### See Also
-* [Gson Deserialization Cookbook by Eugen Paraschiv of baeldung](https://www.baeldung.com/gson-deserialization-guide )
+
+  * [Work in progress for IDE TNG](https://github.com/SeleniumHQ/selenium-ide)
+  * [selenium-ide issue #222: Can selenium ide add support to export script to html format? NOTE: closed](https://github.com/SeleniumHQ/selenium-ide/issues/222)
+  * [SWD by Dmytro Zharii and collaborators](https://github.com/dzharii/swd-recorder)
+  * [SWET](https://github.com/sergueik/SWET)
+  * [Katalon Studio](https://www.katalon.com/)
+  * [Gson Deserialization Cookbook by Eugen Paraschiv of baeldung](https://www.baeldung.com/gson-deserialization-guide )
+
 ### License
 This project is licensed under the terms of the MIT license.
 
