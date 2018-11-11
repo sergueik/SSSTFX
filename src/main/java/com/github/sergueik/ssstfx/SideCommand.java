@@ -9,6 +9,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.github.sergueik.ssstfx.Operation;
+
 /**
  * Selenium TNG Side product JSON deserializer class for Selenium WebDriver Elementor Tool (SWET)
  * @author: Serguei Kouzmine (kouzmine_serguei@yahoo.com)
@@ -22,6 +24,10 @@ final class SideCommand {
 	private String comment;
 	private String target;
 	private String value;
+	private Selector selector;
+	private String selectorValue;
+	private Operation operation;
+  // "operationArgument" would be redundant with value
 
 	public String getName() {
 		return name;
@@ -33,6 +39,55 @@ final class SideCommand {
 
 	public String getId() {
 		return id;
+	}
+
+	public Selector getSelector() {
+		return selector;
+	}
+
+	public void setSelector(Selector data) {
+		this.selector = data;
+	}
+
+	public void setSelector(String data) {
+		if (!data.isEmpty()) {
+			System.err.println("setSelector from: " + data);
+			if (data.matches("^(\\w+)=(.+)$")) {
+				String sel = data.replaceFirst("=(.+)$", "");
+				System.err.println("setSelector extracted sel: " + data);
+				for (Selector obj : Selector.values()) {
+					if (obj.getSelector().equals(sel)) {
+						this.selector = obj;
+						this.selectorValue = data.replaceFirst(String.format("^%s=", sel),
+								"");
+					}
+				}
+			}
+		}
+	}
+
+	public String getSelectorValue() {
+		return selectorValue;
+	}
+
+	public void setSelectorValue(String data) {
+		this.selectorValue = data;
+	}
+
+	public Operation getOperation() {
+		return operation;
+	}
+
+	public void setOperation(Operation data) {
+		this.operation = data;
+	}
+
+	public void setOperation(String data) {
+		for (Operation op : Operation.values()) {
+			if (op.getOperation().equals(data)) {
+				this.operation = op;
+			}
+		}
 	}
 
 	public void setId(String data) {
@@ -78,6 +133,9 @@ final class SideCommand {
 				.append(format("\"command\": \"%s\"\n", command))
 				.append(format("\"comment\": \"%s\"\n", comment))
 				.append(format("\"target\": \"%s\"\n", target))
-				.append(format("\"value\": %s\n", value)).toString();
+				.append(format("\"selector\": \"%s\"\n", selector))
+				.append(format("\"selectorValue\": \"%s\"\n", selectorValue))
+				.append(format("\"operation\": \"%s\"\n", operation))
+				.append(format("\"value\": \"%s\"\n", value)).toString();
 	}
 }

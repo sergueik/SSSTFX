@@ -155,18 +155,47 @@ into `LocatorKind`, `LocatorArgument`, `Operation`, `OperationArgument` etc. pro
 ```java
 class RealSideCommand {
 
-	private String name;
 	private String id;
+	private String name;
 	private String command;
 	private String comment;
 	private String target;
-	private String value;
-	private LocatorKind selector;
-	private LocatorArgument selectorValue;
-	private Operation op;
-	private OperationArgument opArg;
+	private Selector selector;
+	private String selectorValue;
+	private Operation operation;
+	private String value; // the "value" is in fact the operation argument
   // ...
 }
+```
+where
+```java
+public enum Selector {
+  css("css"), 
+  id("id"), 
+  tagName("tag"), 
+  text("text");
+  xpath("xpath"), 
+```
+```java  
+public enum Operation {
+  click("click"), 
+  clickAt("clickAt"), 
+  echo("echo"),
+  highlight("highlight"), 
+  open("open"), 
+  pause("pause"), 
+  refresh("refresh"), 
+  sendKeys("sendKeys"), 
+  store("store"), 
+  storeTitle("storeTitle"), 
+  type("type"), 
+  verifyElementPresent("verifyElementPresent"), 
+  verifyText("verifyText"), 
+  verifyTitle("verifyTitle"), 
+  windowMaximize("windowMaximize"), 
+// ...
+  
+
 ```
 like e.g. in [SKDF](https://github.com/sergueik/SKDF) or other keyword driven frameworks do -
 work in progress but seems easy since the input stream of ojects is strongly typed. The json fragmenr example above
@@ -205,7 +234,7 @@ static {
 ```
 - the fragment is borrowed from [SKDF](https://github.com/sergueik/SKDF) verbatim - the methods and their tags will be different.
 
-[review workflow](https://github.com/sergueik/SSSTFX/blob/master/screenshots/review.png)
+![review workflow](https://github.com/sergueik/SSSTFX/blob/master/screenshots/review.png)
 
 Finally utilizes collection of [jtwig](http://jtwig.org/documentation/reference) templates like example below 
 borrowed from [SWET](https://github.com/sergueik/SWET)
