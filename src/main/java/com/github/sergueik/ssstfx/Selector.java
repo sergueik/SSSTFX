@@ -1,4 +1,14 @@
 package com.github.sergueik.ssstfx;
+/**
+ * Copyright 2018 Serguei Kouzmine
+ */
+
+
+/**
+ * Enumeration covering element locator strategies in ".tests[].commands[].target" 
+ * when de-serializing of Side recording
+ * @author: Serguei Kouzmine (kouzmine_serguei@yahoo.com)
+ */
 
 public enum Selector {
 

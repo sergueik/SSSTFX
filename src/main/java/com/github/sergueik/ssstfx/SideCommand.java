@@ -1,6 +1,6 @@
 package com.github.sergueik.ssstfx;
 /**
- * Copyright 2014 - 2018 Serguei Kouzmine
+ * Copyright 2018 Serguei Kouzmine
  */
 
 import static java.lang.String.format;
@@ -12,7 +12,7 @@ import java.util.Map;
 import com.github.sergueik.ssstfx.Operation;
 
 /**
- * Selenium TNG Side product JSON deserializer class for Selenium WebDriver Elementor Tool (SWET)
+ * Selenium IDE TNG Side Command JSON mapped class
  * @author: Serguei Kouzmine (kouzmine_serguei@yahoo.com)
  */
 

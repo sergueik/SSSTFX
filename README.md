@@ -293,6 +293,7 @@ to produce a standalone program in Java, c#, Python or whatnot
 ### See Also
 
   * [Work in progress for IDE TNG](https://github.com/SeleniumHQ/selenium-ide)
+  * [Selenium IDE TNG commands for Side recording deserialization](https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js)
   * [selenium-ide issue #222: Can selenium ide add support to export script to html format? NOTE: closed](https://github.com/SeleniumHQ/selenium-ide/issues/222)
   * [SWD by Dmytro Zharii and collaborators](https://github.com/dzharii/swd-recorder)
   * [SWET](https://github.com/sergueik/SWET)

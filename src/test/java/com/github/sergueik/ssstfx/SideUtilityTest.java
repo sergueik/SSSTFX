@@ -1,7 +1,7 @@
 package com.github.sergueik.ssstfx;
 
 /**
- * Copyright 2014 - 2018 Serguei Kouzmine
+ * Copyright 2018 Serguei Kouzmine
  */
 
 import static org.junit.Assert.assertArrayEquals;
@@ -40,7 +40,11 @@ import com.github.sergueik.ssstfx.SideTest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-// https://www.baeldung.com/gson-deserialization-guide
+/**
+ * Selenium IDE TNG Side JSON resource de-serialization unit stests
+ * @author: Serguei Kouzmine (kouzmine_serguei@yahoo.com)
+ */
+
 @SuppressWarnings("deprecation")
 public class SideUtilityTest {
 

@@ -1,6 +1,6 @@
 package com.github.sergueik.ssstfx;
 /**
- * Copyright 2014 - 2018 Serguei Kouzmine
+ * Copyright 2018 Serguei Kouzmine
  */
 
 import static java.lang.String.format;
@@ -14,7 +14,7 @@ import com.github.sergueik.ssstfx.SideRecording;
 import com.github.sergueik.ssstfx.SideTest;
 
 /**
- * Side Suite serializer class for Selenium WebDriver Elementor Tool (SWET)
+ * Selenium IDE TNG Side Suite mapped class
  * @author: Serguei Kouzmine (kouzmine_serguei@yahoo.com)
  */
 
