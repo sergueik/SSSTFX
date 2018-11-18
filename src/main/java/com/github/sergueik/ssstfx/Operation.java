@@ -5,7 +5,7 @@ package com.github.sergueik.ssstfx;
  */
 
 /**
- * Enumeration of supported Selenium IDE TNG commands one may find in ".tests[].commands[].command" 
+ * Enumeration of supported Selenium IDE TNG operations one may find in ".tests[].commands[].command"
  * when de-serializing of Side recording
  * @author: Serguei Kouzmine (kouzmine_serguei@yahoo.com)
  */
