@@ -11,6 +11,7 @@ import com.google.gson.JsonSerializer;
 
 // https://stackoverflow.com/questions/11038553/serialize-java-object-with-gson
 public class SideRecordingSerializer implements JsonSerializer<SideRecording> {
+	@Override
 	public JsonElement serialize(final SideRecording sideRecording,
 			final Type type, final JsonSerializationContext context) {
 		JsonObject result = new JsonObject();
@@ -20,7 +21,21 @@ public class SideRecordingSerializer implements JsonSerializer<SideRecording> {
 		}
 		result.add("name", new JsonPrimitive(sideRecording.getName()));
 		result.add("url", new JsonPrimitive(sideRecording.getUrl()));
+
+		List<SideSuite> sideSuites = sideRecording.getSuites();
+		if (sideSuites != null && !sideSuites.isEmpty()) {
+			result.add("sideSuites", context.serialize(sideSuites));
+		}
+
+		List<SideTest> sideTests = sideRecording.getTests();
+		if (sideTests != null && !sideTests.isEmpty()) {
+			result.add("tests", context.serialize(sideTests));
+		}
+
 		List<String> urls = sideRecording.getUrls();
+		if (urls != null && !urls.isEmpty()) {
+			result.add("urls", context.serialize(urls));
+		}
 		/*
 		if (urls != null && !urls.isEmpty()) {
 			result.add("templateDirectory", new JsonPrimitive(urls));

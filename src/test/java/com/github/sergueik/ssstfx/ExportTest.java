@@ -30,6 +30,7 @@ import com.github.sergueik.ssstfx.SideCommand;
 import com.github.sergueik.ssstfx.SideRecording;
 import com.github.sergueik.ssstfx.SideSuite;
 import com.github.sergueik.ssstfx.SideTest;
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -37,6 +38,12 @@ import com.google.gson.GsonBuilder;
  * Selenium IDE TNG Side recording serialization unit tests
  * @author: Serguei Kouzmine (kouzmine_serguei@yahoo.com)
  */
+
+// practicing compound object serialization
+// https://howtodoinjava.com/apache-commons/google-gson-tutorial-convert-java-object-to-from-json/
+// https://futurestud.io/tutorials/gson-mapping-of-arrays-and-lists-of-objects
+// http://zetcode.com/java/gson/
+// https://www.programcreek.com/java-api-examples/index.php?api=com.google.gson.JsonSerializer
 
 public class ExportTest {
 
@@ -93,12 +100,17 @@ public class ExportTest {
 	}
 
 	// @Ignore
+	// https://sites.google.com/site/gson/gson-user-guide#TOC-Collections-Examples
+	// https://github.com/google/gson/blob/master/UserGuide.md
 	@Test
 	public void scratchSideRecordingTest() {
 
 		com.google.gson.Gson gson = new GsonBuilder()
+				// .setPrettyPrinting().serializeNulls()
+				.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
 				.registerTypeAdapter(SideRecording.class, new SideRecordingSerializer())
-				.create();
+				.registerTypeAdapter(SideCommand.class, new SideCommandSerializer())
+				.registerTypeAdapter(SideTest.class, new SideTestSerializer()).create();
 		System.err.println(
 				"Reloading Configuration Object: " + gson.toJson(sideRecordingObj));
 		System.err
