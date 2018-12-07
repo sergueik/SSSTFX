@@ -11,8 +11,10 @@ import com.google.gson.JsonSerializer;
 
 // https://stackoverflow.com/questions/11038553/serialize-java-object-with-gson
 
-// hides extracted fields
-public class SideCommandSerializer implements JsonSerializer<SideCommand> {
+// serializes everything including extracted fields
+// NOTE: since it is just a lambda there seems no way of extending one with another
+public class SideCommandDetailedSerializer
+		implements JsonSerializer<SideCommand> {
 	@Override
 	public JsonElement serialize(final SideCommand sideCommand, final Type type,
 			final JsonSerializationContext context) {
@@ -38,6 +40,21 @@ public class SideCommandSerializer implements JsonSerializer<SideCommand> {
 		if (value != null) {
 			result.add("value", new JsonPrimitive(value));
 		}
+		// NOTE: Selector is not the String
+		Selector selector = sideCommand.getSelector();
+		if (selector != null) {
+			// gson provides default serialization/deserialization for Enum
+			result.add("selector", context.serialize(selector));
+		}
+		String selectorValue = sideCommand.getSelectorValue();
+		if (selectorValue != null) {
+			result.add("selectorValue", new JsonPrimitive(selectorValue));
+		}
+		Operation operation = sideCommand.getOperation();
+		if (operation != null) {
+			result.add("operation", context.serialize(operation));
+		}
+
 		return result;
 	}
 }

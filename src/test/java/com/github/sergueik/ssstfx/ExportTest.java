@@ -39,7 +39,7 @@ import com.google.gson.GsonBuilder;
  * @author: Serguei Kouzmine (kouzmine_serguei@yahoo.com)
  */
 
-// practicing compound object serialization
+// Practicing compound object serialization
 // https://howtodoinjava.com/apache-commons/google-gson-tutorial-convert-java-object-to-from-json/
 // https://futurestud.io/tutorials/gson-mapping-of-arrays-and-lists-of-objects
 // http://zetcode.com/java/gson/
@@ -74,7 +74,10 @@ public class ExportTest {
 		sideCommand.setId(id());
 		sideCommand.setName("name of command 1");
 		sideCommand.setValue("value of command 1");
-		sideCommand.setTarget("target of command 1");
+		// NOTE: not a real SIDE recording (seems to need change processing of these), just to exercise
+		// other code
+		sideCommand.setTarget("xpath=//input[@value='Google Search']");
+		sideCommand.setSelector(sideCommand.getTarget());
 		commands.add(sideCommand);
 
 		sideTest.setId(id());
@@ -99,11 +102,11 @@ public class ExportTest {
 
 	}
 
-	// @Ignore
+	@Ignore
 	// https://sites.google.com/site/gson/gson-user-guide#TOC-Collections-Examples
 	// https://github.com/google/gson/blob/master/UserGuide.md
 	@Test
-	public void scratchSideRecordingTest() {
+	public void scratchSideRecordingSerialzationTest() {
 
 		com.google.gson.Gson gson = new GsonBuilder()
 				// .setPrettyPrinting().serializeNulls()
@@ -113,6 +116,26 @@ public class ExportTest {
 				.registerTypeAdapter(SideTest.class, new SideTestSerializer()).create();
 		System.err.println(
 				"Reloading Configuration Object: " + gson.toJson(sideRecordingObj));
+		System.err
+				.println("Created side test recording: " + sideRecordingObj.toString());
+	}
+
+	@Test
+	public void sideRecordingDetailedSerialzationTest() {
+
+		com.google.gson.Gson gson = new GsonBuilder()
+				// .setPrettyPrinting().serializeNulls()
+				.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+				.registerTypeAdapter(SideRecording.class, new SideRecordingSerializer())
+				.registerTypeAdapter(SideCommand.class,
+						new SideCommandDetailedSerializer())
+				.registerTypeAdapter(SideTest.class, new SideTestSerializer()).create();
+		// NOTE: serialization
+		// "target":"//input[@value\u003d\u0027Google Search\u0027]"
+		// not
+		// "target":"//input[@value='Google Search']"
+		System.err.println("Detailed serialization of Recording Object: "
+				+ gson.toJson(sideRecordingObj));
 		System.err
 				.println("Created side test recording: " + sideRecordingObj.toString());
 	}

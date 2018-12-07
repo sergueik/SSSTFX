@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.google.gson.Gson;
@@ -38,6 +39,7 @@ public class ImportTest {
 	private static Object[] expected = new Object[] { "id", "name", "url", "urls",
 			"tests", "suites" };
 
+	@Ignore
 	@Test
 	public void dataKeysTest() {
 
@@ -70,6 +72,7 @@ public class ImportTest {
 		// this will be important during serialization
 	}
 
+	@Ignore
 	@Test
 	// load and print
 	public void deserializeShallowTest() {
@@ -109,6 +112,7 @@ public class ImportTest {
 				"Deserialized side test recording: " + sideRecording.toString());
 	}
 
+	@Ignore
 	@Test
 	// load, inspect the data, update the object and print
 	public void deserializeDeepTest() {
@@ -122,12 +126,12 @@ public class ImportTest {
 		commands = sideTest.getCommands();
 		sideCommand = commands.get(0);
 		assertThat(sideCommand, notNullValue());
-		// fill strongly-typed operation member
+		// fill strongly-typed "operation" member
 		commands.stream().forEach(o -> {
 			o.setOperation(o.getCommand());
 		});
 
-		// fill strongly-typed selector member
+		// fill strongly-typed "selector" and "selectorValue" members
 		commands.stream().forEach(o -> {
 			o.setSelector(o.getTarget());
 		});

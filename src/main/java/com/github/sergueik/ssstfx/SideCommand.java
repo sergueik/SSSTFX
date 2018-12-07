@@ -24,10 +24,11 @@ final class SideCommand {
 	private String comment;
 	private String target;
 	private String value;
+	// extracted fields
 	private Selector selector;
 	private String selectorValue;
 	private Operation operation;
-  // "operationArgument" would be redundant with value
+	// "operationArgument" would be redundant with value
 
 	public String getName() {
 		return name;
@@ -50,8 +51,10 @@ final class SideCommand {
 	}
 
 	public void setSelector(String data) {
+		System.err
+				.println(String.format("Executing setSelector from: \"%s\"", data));
 		if (!data.isEmpty()) {
-			System.err.println("setSelector from: " + data);
+			System.err.println("Processing: " + data);
 			if (data.matches("^(\\w+)=(.+)$")) {
 				String sel = data.replaceFirst("=(.+)$", "");
 				System.err.println("setSelector extracted sel: " + data);
