@@ -3,8 +3,10 @@ package com.github.sergueik.ssstfx;
  * Copyright 2018 Serguei Kouzmine
  */
 
+import com.google.gson.annotations.SerializedName;
+
 /**
- * Enumeration covering element locator strategies in ".tests[].commands[].target" 
+ * Enumeration covering element locator strategies in ".tests[].commands[].target"
  * when de-serializing of Side recording
  * @author: Serguei Kouzmine (kouzmine_serguei@yahoo.com)
  */
@@ -13,10 +15,19 @@ package com.github.sergueik.ssstfx;
 public enum Selector {
 
 // @formatter:off
-  css("css"), 
-  id("id"), 
-  tagName("tag"), 
+  @SerializedName("CssSelector")
+  css("css"),
+
+  @SerializedName("Id")
+  id("id"),
+	
+  @SerializedName("Tag")
+  tagName("tag"),
+	
+  @SerializedName("Text")
   text("text"),
+	
+  @SerializedName("Xpath")
   xpath("xpath");
 // @formatter:on
 	private String kind; //

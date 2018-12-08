@@ -1,5 +1,7 @@
 package com.github.sergueik.ssstfx;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Copyright 2018 Serguei Kouzmine
  */
@@ -89,14 +91,22 @@ public enum Operation {
 	chooseOkOnNextConfirmation("chooseOkOnNextConfirmation"),
 	setSpeed("setSpeed"),
 	setWindowSize("setWindowSize"),
-	_do("do"),
+
+	@SerializedName("do")
+  _do("do"),
+	@SerializedName("else")
 	_else("else"),
+	@SerializedName("elseIf")
 	_elseIf("elseIf"),
+	@SerializedName("end")
 	_end("end"),
+	@SerializedName("if")
 	_if("if"),
 	repeatIf("repeatIf"),
 	times("times"),
+	@SerializedName("while")
 	_while("while"),
+	@SerializedName("assert")
 	_assert("assert"),
 	verify("verify"),
 	waitForElementPresent("waitForElementPresent"),
