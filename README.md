@@ -107,9 +107,9 @@ class SideCommand {
 }
 ```
 
-Second decrypts the strongly typed SideCommand instances derived from 
+Second decrypts the strongly typed SideCommand instances derived from
 ```json
-{     
+{
   "command": "highlight",
   "target": "id=lst-ib",
   "value": ""
@@ -170,31 +170,31 @@ class RealSideCommand {
 where
 ```java
 public enum Selector {
-  css("css"), 
-  id("id"), 
-  tagName("tag"), 
+  css("css"),
+  id("id"),
+  tagName("tag"),
   text("text");
-  xpath("xpath"), 
+  xpath("xpath"),
 ```
-```java  
+```java
 public enum Operation {
-  click("click"), 
-  clickAt("clickAt"), 
+  click("click"),
+  clickAt("clickAt"),
   echo("echo"),
-  highlight("highlight"), 
-  open("open"), 
-  pause("pause"), 
-  refresh("refresh"), 
-  sendKeys("sendKeys"), 
-  store("store"), 
-  storeTitle("storeTitle"), 
-  type("type"), 
-  verifyElementPresent("verifyElementPresent"), 
-  verifyText("verifyText"), 
-  verifyTitle("verifyTitle"), 
-  windowMaximize("windowMaximize"), 
+  highlight("highlight"),
+  open("open"),
+  pause("pause"),
+  refresh("refresh"),
+  sendKeys("sendKeys"),
+  store("store"),
+  storeTitle("storeTitle"),
+  type("type"),
+  verifyElementPresent("verifyElementPresent"),
+  verifyText("verifyText"),
+  verifyTitle("verifyTitle"),
+  windowMaximize("windowMaximize"),
 // ...
-  
+
 
 ```
 like e.g. in [SKDF](https://github.com/sergueik/SKDF) or other keyword driven frameworks do -
@@ -236,7 +236,7 @@ static {
 
 ![review workflow](https://github.com/sergueik/SSSTFX/blob/master/screenshots/review.png)
 
-Finally utilizes collection of [jtwig](http://jtwig.org/documentation/reference) templates like example below 
+Finally utilizes collection of [jtwig](http://jtwig.org/documentation/reference) templates like example below
 borrowed from [SWET](https://github.com/sergueik/SWET)
 ```java
 {#
@@ -299,6 +299,7 @@ to produce a standalone program in Java, c#, Python or whatnot
   * [SWET](https://github.com/sergueik/SWET)
   * [Katalon Studio](https://www.katalon.com/)
   * [Gson Deserialization Cookbook by Eugen Paraschiv of baeldung](https://www.baeldung.com/gson-deserialization-guide )
+  * [Selenese and Side script interpreter implemented in Java](https://github.com/vmi/selenese-runner-java)
 
 ### License
 This project is licensed under the terms of the MIT license.
