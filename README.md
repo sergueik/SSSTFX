@@ -300,9 +300,11 @@ to produce a standalone program in Java, c#, Python or whatnot
   * [Katalon Studio](https://www.katalon.com/)
   * [Gson Deserialization Cookbook by Eugen Paraschiv of baeldung](https://www.baeldung.com/gson-deserialization-guide )
   * [Selenese and Side script interpreter implemented in Java](https://github.com/vmi/selenese-runner-java)
+  * [Selenium IDE](https://applitools.com/blog/why-selenium-ide-2019)
 
 ### License
 This project is licensed under the terms of the MIT license.
 
 ### Author
 [Serguei Kouzmine](kouzmine_serguei@yahoo.com)
+[]
