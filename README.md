@@ -291,16 +291,20 @@ to produce a standalone program in Java, c#, Python or whatnot
 - this part is a work in progress.
 
 ### See Also
-
+  * [selenese and side runner Java prject](https://github.com/vmi/selenese-runner-java) Selenium IDE native format (selenese and side) interpreter
   * [Work in progress for IDE TNG](https://github.com/SeleniumHQ/selenium-ide)
   * [Selenium IDE TNG commands for Side recording deserialization](https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js)
   * [selenium-ide issue #222: Can selenium ide add support to export script to html format? NOTE: closed](https://github.com/SeleniumHQ/selenium-ide/issues/222)
   * [SWD by Dmytro Zharii and collaborators](https://github.com/dzharii/swd-recorder)
   * [SWET](https://github.com/sergueik/SWET)
   * [Katalon Studio](https://www.katalon.com/)
+  * [Plato-solutions/Siderunner](https://github.com/Plato-solutions/siderunner) - JS library for parsing and running selenium .side files used in a Selenium IDE
   * [Gson Deserialization Cookbook by Eugen Paraschiv of baeldung](https://www.baeldung.com/gson-deserialization-guide )
   * [Selenese and Side script interpreter implemented in Java](https://github.com/vmi/selenese-runner-java)
   * [Selenium IDE](https://applitools.com/blog/why-selenium-ide-2019)
+  * [Selenium4j](https://github.com/nextinterfaces/selenium4j) is a tool translating Selenium IDE HTML scripts to Java JUnit tests (development stopped in 2017)
+  * [side-runner-py/side-runner-py](https://github.com/side-runner-py/side-runner-py) - Selenium SIDE file runner Python library
+  * [selenium-side-runner](https://github.com/nixel2007/docker-selenium-side-runner) SIDE test Docker hosted runner
 
 ### License
 This project is licensed under the terms of the MIT license.

@@ -74,7 +74,8 @@ public class ExportTest {
 		sideCommand.setId(id());
 		sideCommand.setName("name of command 1");
 		sideCommand.setValue("value of command 1");
-		// NOTE: not a real SIDE recording (seems to need change processing of these), just to exercise
+		// NOTE: not a real SIDE recording (seems to need change processing of
+		// these), just to exercise
 		// other code
 		sideCommand.setTarget("xpath=//input[@value='Google Search']");
 		sideCommand.setSelector(sideCommand.getTarget());
@@ -108,7 +109,7 @@ public class ExportTest {
 	@Test
 	public void scratchSideRecordingSerialzationTest() {
 
-		com.google.gson.Gson gson = new GsonBuilder()
+		Gson gson = new GsonBuilder()
 				// .setPrettyPrinting().serializeNulls()
 				.setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
 				.registerTypeAdapter(SideRecording.class, new SideRecordingSerializer())

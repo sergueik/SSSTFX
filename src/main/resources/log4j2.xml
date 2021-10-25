@@ -13,7 +13,7 @@
       <LevelRangeFilter maxLevel="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
     </Console>
     <!--  File appender for Debug level  -->
-    <RollingFile name="debugLog" fileName="${sys:APP_LOG_ROOT}/SSSTFX-debug.log" filePattern="${sys:APP_LOG_ROOT}/SWET-debug-%d{yyyy-MM-dd}-%i.log">
+    <RollingFile name="debugLog" fileName="${sys:APP_LOG_ROOT}/SSSTFX-debug.log" filePattern="${sys:APP_LOG_ROOT}/debug-%d{yyyy-MM-dd}-%i.log">
       <!-- Matches only DEBUG level -->
       <LevelRangeFilter minLevel="DEBUG" maxLevel="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
       <PatternLayout pattern="${VERBOSE_LOG_PATTERN}"/>
@@ -23,7 +23,7 @@
       <DefaultRolloverStrategy max="10"/>
     </RollingFile>
     <!--  File appender for Info level  -->
-    <RollingFile name="infoLog" fileName="${sys:APP_LOG_ROOT}/SSSTFX-info.log" filePattern="${sys:APP_LOG_ROOT}/SWET-info-%d{yyyy-MM-dd}-%i.log">
+    <RollingFile name="infoLog" fileName="${sys:APP_LOG_ROOT}/SSSTFX-info.log" filePattern="${sys:APP_LOG_ROOT}/info-%d{yyyy-MM-dd}-%i.log">
       <!-- Matches only INFO level -->
       <LevelRangeFilter minLevel="INFO" maxLevel="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
       <PatternLayout pattern="${LOG_PATTERN}"/>
@@ -33,7 +33,7 @@
       <DefaultRolloverStrategy max="10"/>
     </RollingFile>
     <!--  File appender for Error level  -->
-    <RollingFile name="errorLog" fileName="${sys:APP_LOG_ROOT}/SSSTFX-error.log" filePattern="${sys:APP_LOG_ROOT}/SWET-error-%d{yyyy-MM-dd}-%i.log">
+    <RollingFile name="errorLog" fileName="${sys:APP_LOG_ROOT}/SSSTFX-error.log" filePattern="${sys:APP_LOG_ROOT}/error-%d{yyyy-MM-dd}-%i.log">
       <!-- Matches only ERROR level -->
       <LevelRangeFilter minLevel="ERROR" maxLevel="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
       <PatternLayout pattern="${VERBOSE_LOG_PATTERN}"/>
@@ -45,7 +45,7 @@
   </Appenders>
   <Loggers>
     <!-- All java classes within my package will log -->
-    <Logger name="com.github.sergueik.swet" additivity="false">
+    <Logger name="com.github.sergueik.ssstfx" additivity="false">
       <AppenderRef ref="debugLog"/>
       <AppenderRef ref="infoLog"/>
       <AppenderRef ref="errorLog"/>
